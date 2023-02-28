@@ -5,7 +5,6 @@ import Recipes from "../../../../model/model";
 
 export default async function getRecipes (req: NextApiRequest, res: NextApiResponse) {
     const {type} = req.query
-    console.log(type)
     const recipeTypes = ['main', 'dessert', 'coctail']
     if(type === 'all'){
         try {
@@ -26,7 +25,4 @@ export default async function getRecipes (req: NextApiRequest, res: NextApiRespo
             res.send(err);
         }
     }
-
-    
-    
 }

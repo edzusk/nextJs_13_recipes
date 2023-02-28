@@ -1,14 +1,7 @@
-import { NextApiRequest, NextApiResponse } from "next"
-import connection from '../../../utils/mongoConnect'
-import RecipeModel from "../../../model/model"
-
-
-type NewRecipe = {
-  title: string,
-  recipe: string
-  imageUrl: string
-}
-
+import { NextApiRequest, NextApiResponse } from "next";
+import MongoConnect from '../../../utils/mongoConnect';
+import Recipes from "../../../model/model";
+import { NewRecipe } from "../../../types/types";
 
 const addRecipe = async (req: NextApiRequest, res: NextApiResponse) => {
 
@@ -17,10 +10,10 @@ const addRecipe = async (req: NextApiRequest, res: NextApiResponse) => {
       try {
       console.log('connecting to db');
   
-      await connection();
+      await MongoConnect();
       console.log('connected to db');
       console.log('CREATING DOCUMENT');
-      const recipeToAdd = await RecipeModel.create(recipe);
+      const recipeToAdd = await Recipes.create(recipe);
       console.log('good')
       res.json({ recipeToAdd });
       }catch (error) {
@@ -28,7 +21,5 @@ const addRecipe = async (req: NextApiRequest, res: NextApiResponse) => {
         res.json({ error });
       }
     }
-    
-
 };
 export default addRecipe

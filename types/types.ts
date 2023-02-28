@@ -2,13 +2,13 @@ type NewRecipe = {
   title: string,
   recipe: string,
   imageUrl: string,
-  type: 'coctai' | 'main' | 'dessert',
+  type: 'coctail' | 'main' | 'dessert',
 }
 type Recipe = {
   title: string,
   recipe: string,
   imageUrl: string,
-  type: 'coctai' | 'main' | 'dessert',
+  type: 'coctail' | 'main' | 'dessert',
   _id: string,
 }
 

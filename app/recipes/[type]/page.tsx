@@ -29,13 +29,15 @@ const RecepiesByType = async ({params}:RecepiesByTypeProps) => {
       <div className="row">
         {data.map(({ title, _id, imageUrl }) => {
           return (
-            <div key={_id} className={`col-4 ${styles.recipeCard}`}>
-              <Link href={`/recipes/recipe/${_id}`}>
+            <div key={_id} className="col-4 p-3">
+              <div className={styles.recipeCard}>
+              <Link className={styles.Cardtitle} href={`/recipes/recipe/${_id}`}>
                 <div className={styles.imageWrapper}>
                   <Image className={styles.image} src={imageUrl} alt={"food image"} fill={true} ></Image>
                 </div>
-                <span>{title}</span>
+                <span >{title}</span>
               </Link>
+              </div>
             </div>
           );
         })}
